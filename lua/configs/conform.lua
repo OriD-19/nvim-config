@@ -4,6 +4,8 @@ local options = {
     -- css = { "prettier" },
     -- html = { "prettier" },
     python = { "black" },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
   },
 
   -- format_on_save = {
@@ -11,6 +13,14 @@ local options = {
   --   timeout_ms = 500,
   --   lsp_fallback = true,
   -- },
+}
+
+-- to configure the tab usage, cuz we are chads
+require('conform').formatters.prettier = {
+    prepend_args = {
+        "--use-tabs",
+        "true"
+    }
 }
 
 return options
