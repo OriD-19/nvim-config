@@ -11,3 +11,4 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find document symbols" })
 
 map("n", "<S-K>", "<cmd>lua vim.lsp.buf.hover({border='single'})<CR>", { desc = "Show signature help" })
+map("n", "<leader>s", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show error details " })
