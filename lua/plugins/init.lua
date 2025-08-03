@@ -65,20 +65,47 @@ return {
       },
     },
     config = function()
-      require("competitest").setup({
-                received_problems_path = "$(CWD)/$(PROBLEM)/$(PROBLEM).$(FEXT)",
-            })
+      require("competitest").setup {
+        received_problems_path = "$(CWD)/$(PROBLEM)/$(PROBLEM).$(FEXT)",
+      }
     end,
   },
 
-    {
-        'Exafunction/windsurf.vim',
-        event = 'BufEnter',
-        config = function ()
-            vim.keymap.set('i', '<Tab>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-            vim.keymap.set('i', '<C-;>', function () return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-            vim.keymap.set('i', '<C-,>', function () return vim.fn['codeium#CycleCompletions']() end, { expr = true, silent = true })
-            vim.keymap.set('i', '<C-x>', function () return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
-        end
+  {
+    "Exafunction/windsurf.vim",
+    event = "BufEnter",
+    config = function()
+      vim.keymap.set("i", "<Tab>", function()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-;>", function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-,>", function()
+        return vim.fn["codeium#CycleCompletions"]()
+      end, { expr = true, silent = true })
+      vim.keymap.set("i", "<C-x>", function()
+        return vim.fn["codeium#Clear"]()
+      end, { expr = true, silent = true })
+    end,
+  },
+
+  {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python", --optional
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
     },
+    lazy = false,
+    branch = "regexp", -- This is the regexp branch, use this for the new version
+    keys = {
+      { ",v", "<cmd>VenvSelect<cr>" },
+    },
+    ---@type venv-selector.Config
+    opts = {
+      -- Your settings go here
+    },
+  },
 }
