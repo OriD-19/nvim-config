@@ -11,7 +11,7 @@ vim.lsp.config("pyright", {
 
 vim.lsp.config("clangd", {
   settings = {},
-  filetypes = { "cpp" },
+  filetypes = { "cpp", "c", "h", "hpp" },
 })
 
 vim.lsp.config("gopls", {
