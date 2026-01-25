@@ -13,3 +13,5 @@ map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find
 map("n", "<S-K>", "<cmd>lua vim.lsp.buf.hover({border='single'})<CR>", { desc = "Show signature help" })
 map("n", "<leader>s", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show error details " })
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open lazygit" })
+
+map("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Open Oil file explorer" })
