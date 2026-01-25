@@ -72,25 +72,6 @@ return {
   },
 
   {
-    "Exafunction/windsurf.vim",
-    event = "BufEnter",
-    config = function()
-      vim.keymap.set("i", "<Tab>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-;>", function()
-        return vim.fn["codeium#CycleCompletions"](1)
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-,>", function()
-        return vim.fn["codeium#CycleCompletions"]()
-      end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-x>", function()
-        return vim.fn["codeium#Clear"]()
-      end, { expr = true, silent = true })
-    end,
-  },
-
-  {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
@@ -116,6 +97,7 @@ return {
       ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
+    lazy = false,
     config = function()
       ---@type opencode.Opts
       vim.g.opencode_opts = {
