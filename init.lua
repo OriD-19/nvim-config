@@ -35,3 +35,17 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+local highlights = {
+  "Normal",
+  "NormalNC",
+  "NormalFloat",
+  "FloatBorder",
+  "SignColumn",
+  "NonText",
+  "EndOfBuffer",
+}
+
+for _, group in ipairs(highlights) do
+  vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+end
